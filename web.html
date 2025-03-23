@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRACTICE PROJERCT!</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html,body{
+            height: 100%;
+            width: 100%;
+            font-family: 'gilroy';
+            background-color: rgb(21, 3, 39);
+        }
+        h1{
+            font-size: 70px;
+            font-weight: 800;
+            font-style: italic;
+            color: white;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        #cont{
+            min-height: 10vh;
+            width: 40vw;
+            border: 2px solid white;
+            border-radius: 20px;
+            padding: 10px;
+            margin-left: 30vw;
+            margin-top: 5%;
+        }
+        #input{
+            width: 70%;
+            border-radius: 20px;
+            margin-left: 15%;
+            margin-top: 5%;
+            padding: 11px;
+            text-align: center;
+            text-transform: uppercase;
+            color: black;
+            font-size: 15px;
+            font-weight: 400;
+            cursor: pointer;
+        }
+        #btnCont{
+            width: 60%;
+            height: 30%;
+            margin-left: 20%;
+            margin-top: 5%;
+           /* border: 2px solid white;*/
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 20px;
+            
+        }
+        #btn1{
+            width: 40%;
+            padding: 12px;
+            color: black;
+            font-weight: 600;
+            font-size: 12px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        #btn2{
+            width: 40%;
+            padding: 12px;
+            color: black;
+            font-weight: 600;
+            font-size: 12px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        #res{
+          /*  height: 20vw;*/
+            width: 50%;
+            margin-left: 25%;
+            margin-top: 4%;
+           /* border: 2px solid white;*/
+            border-radius: 10px;
+            color: white;
+            font-size: 20px;
+            padding: 10px;
+           /* opacity: 0;*/
+           text-align: center;
+
+        }
+        /*RESPONSIVENESS*/
+        @media(max-width:600px){
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            html,body{
+                height: 100%;
+                width: 100%;
+                font-family: 'gilroy';
+                background-color: rgb(3, 30, 14);
+            }
+            h1{
+                font-size: 35px;
+                margin-top: 8%;
+            }
+            #cont{
+                width: 70vw;
+                border: 1px solid white;
+                margin-left: 15vw;
+                margin-top: 12%;
+            }
+            #input{
+                width: 70%;
+                padding: 8px;
+                font-size: 10px;
+                font-size: 12px;
+            }
+            #btnCont{
+                width: 80%;
+                margin-left: 10%;
+            }
+            #btn1{
+                width: 35%;
+                padding: 7px;
+                font-size: 8px;
+                font-weight: 500;
+            }
+            #btn2{
+                width: 35%;
+                padding: 7px;
+                font-size: 8px;
+                font-weight: 500;
+            }
+            #res{
+                width: 70%;
+                margin-left: 15%;
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>TABLE GENERATOR:</h1>
+    <div id="cont">
+        <input type="text" id="input" placeholder="Please input a value">
+        <div id="btnCont">
+            <button id="btn1">Answer</button>
+            <button id="btn2">Refresh</button>
+        </div>
+        <div id="res"></div>
+    </div>
+    <script>
+        let input = document.querySelector("#input");
+        let btn1 = document.querySelector("#btn1");
+        let btn2 = document.querySelector("#btn2");
+        let res = document.querySelector("#res");
+       // let arr = [1,2,3,4,5,6,7,8,9,10];          forEach loop s bhi kr skte hain.
+        btn1.addEventListener("click",()=>{
+            let a = Number(input.value);
+            if(a>0){
+                res.innerHTML = `<h2>Table for ${a} is:</h2>`;
+                for(let i = 1; i <= 10; i++){
+                let result = a*i;
+                res.innerHTML += `<h3>${a} x ${i} = ${result}</h3>`;
+            }
+            }
+            else if(a<=0){
+                res.innerHTML = `<h2>NO TABLE EXISTS FOR ${a}, PLEASE ENTER A CORRECT VALUE</h2>`;
+            }
+            else if(isNaN(a)){
+                res.innerHTML = `<h2>STRINGS NOT ALLOWED, ONLY NUMBERS!</h2>`;
+            }
+            
+        })
+        btn2.addEventListener("click",()=>{
+            input.value = "";
+            res.innerHTML = "";
+        })
+
+    </script>
+</body>
+</html>
